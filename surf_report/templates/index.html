@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>PR Surf</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/scripts.js."></script>
+  </head>
+  <body>
+    <div class="navbar-top">
+      <div class="navbar-top-left">            
+          <h1><a href="">PR Surf</a></h1>
+      </div>
+      <div class="nav-top-right">
+              <li><h1><a href="">Favorites</a></h1></li>
+              <li><h1><a href="">Login</a></h1></li>
+              <li><h1><a href="">Sign Up</a></h1></li>
+      </div>
+    </div>
+    <div class="top-block">
+      <h1>San Juan  Forecast</h1>
+      <p>Some surf on tap this week.  We will see a warm front approach our area from the south Tuesday, then a weak low will cross our coastal waters Wednesday. This will generate onshore flow with E winds and a chunky 4-5′ SE swell.  Sloppy conditions will continue into Thursday with winds shifting more southerly, but a cold front will pass late Thursday night giving us offshore winds Friday morning.  Unfortunately the swell will be declining in size, but still some really fun 3-4′ combo swell with clean conditions all day so get out there!  Small leftovers Saturday.  Have fun!</p>
+    </div>
+    <div class="block2">
+      <div class="second-block">
+        <div class="info-block">
+          <h1>Swell</h1>
+          {% block swell %}
+            <p>Wave Height Meters: {{ wvht_m }} m. at {{ pd }} seconds {{ wave_dir }} @ {{ wave_d }}°.</p>
+            <p>Wave Height Feet: {{ wvht_ft }} ft. at {{ pd }} seconds {{ wave_dir }} @ {{ wave_d }}°.</p>
+          {% endblock %}
+        </div>
+        <div class="info-block">
+          <h1>Wind</h1>
+          {% block wind %}
+            <p>Wind Speed KPH: {{ wspd_kph }} kph. {{ dir }} at {{ wdir_d }}°.</p>
+            <p>Wind Speed MPH: {{ wspd_mph }} mph. {{ dir }} at {{ wdir_d }}°.</p>
+          {% endblock %}
+        </div>
+      </div>
+      <div class="second-block">
+        <div class="info-block">
+          <h1>Water Temperature</h1>
+          {% block water_temp %}
+            <p>Water Temperature Celsius: {{ wtemp_c }}°C</p>
+            <p>Water Temperature Fahrenheit: {{ wtemp_f }}°F</p>
+          {% endblock %}
+        </div>
+        <div class="info-block">
+          <h1>Weather Conditions</h1>
+          {% block air_temp %}
+            <p>Current Conditions: {{ conditions }}</p>
+            <p>Air Temperature Celsius: {{ air_temp_c }}°C</p>
+            <p>Air Temperature Fahrenheit: {{ air_temp_f }}°F</p>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <div class="nav-bottom">
+      <button class="top-button" data-top-button><img class="top-button-image" src="static/arrow.png" alt="Arrow"></button>
+  </div>
+  </body>
+</html>
