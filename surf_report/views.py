@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import pandas as pd
 import requests
+import math
 
 def home(request):
     # NDBC/NOAA API - San Juan Buoy (41053)
@@ -111,6 +112,25 @@ def home(request):
     if int(WAVE_D) > 315 and int(WAVE_D) < 0:
         WAVE_DIR = 'NNW'
 
+    # Get wave height ranges 
+    WVHT_MIN_F = math.floor(float(WVHT_FT))
+    WVHT_MAX_F = math.ceil(float(WVHT_FT))
+    WVHT_MIN_M = math.floor(float(WVHT_M))
+    WVHT_MAX_M = math.ceil(float(WVHT_M))
+
+    # Wave quality
+    WAVE_QUALITY = 'Good'
+    if float(WVHT_FT) < 2:
+        WAVE_QUALITY = 'Flat'
+    if float(WSPD_MPH) > 20 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
+        WAVE_QUALITY = 'Poor'
+    if float(WSPD_MPH) < 20 and float(WVHT_FT) > 2 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+        WAVE_QUALITY = 'Fair'
+    if float(WVHT_FT) > 4 and float(WSPD_MPH) < 10 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+        WAVE_QUALITY = 'Great'
+    if float(WVHT_FT) > 6 and float(WSPD_MPH) < 10 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+        WAVE_QUALITY = 'Firing'
+
     # Usable Variables in HTML File
     content = {
         'wvht_m': WVHT_M,
@@ -127,6 +147,11 @@ def home(request):
         'air_temp_f': Air_Temp_F,
         'wave_d': WAVE_D,
         'wave_dir': WAVE_DIR,
+        'wvht_min_f': WVHT_MIN_F,
+        'wvht_max_f': WVHT_MAX_F,
+        'wvht_min_m': WVHT_MIN_M,
+        'wvht_max_m': WVHT_MAX_M,
+        'wave_quality': WAVE_QUALITY,
     }
 
     return render(request, 'index.html', content)
