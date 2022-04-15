@@ -21,6 +21,11 @@
       <h1>San Juan  Forecast</h1>
       <p>Some surf on tap this week.  We will see a warm front approach our area from the south Tuesday, then a weak low will cross our coastal waters Wednesday. This will generate onshore flow with E winds and a chunky 4-5′ SE swell.  Sloppy conditions will continue into Thursday with winds shifting more southerly, but a cold front will pass late Thursday night giving us offshore winds Friday morning.  Unfortunately the swell will be declining in size, but still some really fun 3-4′ combo swell with clean conditions all day so get out there!  Small leftovers Saturday.  Have fun!</p>
     </div>
+    <div class="report">
+      <div class="report-txt {% if wave_quality == 'Firing' %} report-txt-firing {% endif %} {% if wave_quality == 'Great' %} report-txt-great {% endif %} {% if wave_quality == 'Poor' %} report-txt-poor {% endif %} {% if wave_quality == 'Flat' %} report-txt-flat {% endif %}">
+        <h1>{{ wvht_min_f }} - {{ wvht_max_f }} ft. - {{ wave_quality }}</h1>
+      </div>
+    </div>
     <div class="block2">
       <div class="second-block">
         <div class="info-block">
