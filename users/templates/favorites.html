@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>PR Surf</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon.png">
+    <script src="static/scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="navbar-top">
+      <div class="navbar-top-left">            
+          <h1><a href="home">PR Surf</a></h1>
+      </div>
+      <div class="nav-top-right">
+              <li><h1><a href="favorites">Favorites</a></h1></li>
+              {% if user.is_authenticated %}
+              <li><h1><a href="logout">Logout</a></h1></li>
+              {% else %}
+              <li><h1><a href="login">Login</a></h1></li>
+              <li><h1><a href="register">Sign Up</a></h1></li>
+              {% endif %}
+      </div>
+    </div>
+    <div class="favorites-block">
+        <h1>{{ user.username }}'s Favorites</h1>
+    </div>
+    <div class="nav-bottom">
+      <button class="top-button" data-top-button><img class="top-button-image" src="static/arrow.png" alt="Arrow"></button>
+  </div>
+  </body>
+</html>
