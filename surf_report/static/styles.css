@@ -200,6 +200,20 @@ html, body {
     border-radius: 20px;
 }
 
+.forecast-block {
+    background-color: rgba(242, 246, 247, 0.329);
+    margin: 0 auto;
+    width: 720px;
+}
+
+.forecast {
+    background-color: rgba(201, 215, 218, 0.329);
+    width: 716px;
+    margin-bottom: 50px;
+    border-style: solid;
+    border-color: black;
+}
+
 /*/
 /*/
 
