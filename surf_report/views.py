@@ -140,7 +140,7 @@ def home(request):
     if float(WVHT_FT) > 6 and float(WSPD_MPH) < 10 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
         WAVE_QUALITY = 'Firing'
 
-    # NOAA GPS Wave Forecast Model for San Juan - API Limit = 100 per Day
+    # NOAA GPS Wave Forecast Model for San Juan - Planet OS API - Limit = 100 per Day
     pd.set_option('display.max_columns', None)
     Forecast_Data = pd.read_csv('https://api.planetos.com/v1/datasets/noaa_gfs-wave_global_0.25d/point?apikey=2139dfd83c324637a2900a8ab75c18a9&lat=18.781983065550715&origin=dataset-details&lon=-65.88798181067408&csv=true&count=100')
     
