@@ -25,9 +25,9 @@ def home(request):
     WTEMP_F = (float(WTEMP_C) * 1.80) + (float(32))
 
     # Get Wind Speed - Converted to Kilometers per hour and Miles per hour
-    WSPD_BC = pd.DataFrame(WeatherInfo['wind'], index=['speed']).speed[0]
-    WSPD_KPH = round(WSPD_BC * 3.60, 2)
-    WSPD_MPH = round(WSPD_BC * 2.2369, 2)
+    WSPD_BC = BuoyInfo[pd.to_numeric(BuoyInfo.WSPD, errors='coerce').notnull()]
+    WSPD_KPH = round(float(WSPD_BC.WSPD.iloc[0]) * 3.60, 2)
+    WSPD_MPH = round(float(WSPD_BC.WSPD.iloc[0]) * 2.2369, 2)
 
     # Get Wind Direction in all Cardinal Directions and Degrees
     WDIR_D = pd.DataFrame(WeatherInfo['wind'], index=['speed']).deg[0]
@@ -119,16 +119,23 @@ def home(request):
     WVHT_MAX_M = math.ceil(float(WVHT_M))
 
     # Wave quality
-    WAVE_QUALITY = 'Good'
-    if float(WVHT_FT) < 2:
+    WAVE_QUALITY = 'Fair'
+    if float(WVHT_FT) < 1:
         WAVE_QUALITY = 'Flat'
-    if float(WSPD_MPH) > 20 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
+    # If 15mph+ winds and onshore - than
+    if float(WSPD_MPH) > 15 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
         WAVE_QUALITY = 'Poor'
-    if float(WSPD_MPH) < 20 and float(WVHT_FT) > 2 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+    # If less than 20mph winds and waveheight over 2ft and offshore - than
+    if float(WSPD_MPH) < 20 and float(WVHT_FT) > 2 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
         WAVE_QUALITY = 'Fair'
-    if float(WVHT_FT) > 4 and float(WSPD_MPH) < 10 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+    # If less than 5mph winds and waveheight over 2ft and onshore - than
+    if float(WSPD_MPH) < 5 and float(WVHT_FT) > 2 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+        WAVE_QUALITY = 'Fair'
+    # If less than 10mph winds and waveheight over 4ft and offshore - than
+    if float(WVHT_FT) > 4 and float(WSPD_MPH) < 10 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
         WAVE_QUALITY = 'Great'
-    if float(WVHT_FT) > 6 and float(WSPD_MPH) < 10 and (float(WDIR_D) > 45 or float(WDIR_D) < 225):
+    # If less than 10mph winds and waveheight over 6ft and offshore - than
+    if float(WVHT_FT) > 6 and float(WSPD_MPH) < 10 and (float(WDIR_D) < 45 or float(WDIR_D) > 225):
         WAVE_QUALITY = 'Firing'
 
     # Usable Variables in HTML File
