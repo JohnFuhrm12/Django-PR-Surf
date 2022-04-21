@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import UserRegisterForm
+from .models import UserRegisterForm, Link
 from django.contrib.auth.decorators import login_required
 
 def register(request):
@@ -31,4 +31,9 @@ def register(request):
 
 @login_required
 def favorites(request):
-    return render(request, 'favorites.html')
+    # Get User Favorites
+    Links = Link.objects.filter(favorites=request.user)
+    context = {
+        'links': Links, 
+    }
+    return render(request, 'favorites.html', context)
