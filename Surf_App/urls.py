@@ -23,8 +23,13 @@ from users.models import CustomAuthForm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', views.home, name='home'),
+    path('forecasts', views.forecasts, name='forecasts'),
+    path('rincón', views.rincon, name='rincon'),
+    path('isabela', views.isabela, name='isabela'),
+    path('aguadilla', views.aguadilla, name='aguadilla'),
     path('register', user_views.register, name='register'),
     path('favorites', user_views.favorites, name='favorites'),
     path('login', auth_views.LoginView.as_view(authentication_form=CustomAuthForm, template_name='login.html'), name='login'),
     path('logout', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('fav/<int:id>/', views.favorite_add, name='favorite_add'),
 ]
