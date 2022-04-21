@@ -11,7 +11,7 @@
   <body>
     <div class="navbar-top">
       <div class="navbar-top-left">            
-          <h1><a href="">PR Surf</a></h1>
+          <h1><a href="home">PR Surf</a></h1>
       </div>
       <div class="nav-top-right">
               <li><h1><a href="forecasts">Forecasts</a></h1></li>
@@ -26,7 +26,7 @@
     </div>
     <div class="top-block">
       {% for report in reports %}
-        {% if report.title == 'San Juan Forecast' %}
+        {% if report.title == 'Aguadilla Forecast' %}
         <h1>{{ report.title }}</h1>
         <p>{{ report.content }}</p>
         {% endif %}
