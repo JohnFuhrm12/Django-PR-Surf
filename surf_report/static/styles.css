@@ -126,6 +126,43 @@ html, body {
     margin-top: 0;
 }
 
+.top-block-forecasts {
+    background-color: rgba(201, 215, 218, 0.329);
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 800px;
+}
+
+.top-block-forecasts h1 {
+    margin-top: 0px;
+    margin-left: 16%;
+    margin-right: 16%;
+    margin-bottom: 50px;
+    border-bottom: solid 3px;
+    font-size: 60px;
+}
+
+.top-block-forecasts h2 {
+    margin-bottom: 0px;
+}
+
+
+.top-block-forecasts a {
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+}
+
+.top-block-forecasts a:hover {
+    color: rgb(0, 191, 255);
+}
+
+.top-block-forecasts .fav {
+    font-size: 25px;
+}
+
 /*/
 /*/
 
@@ -162,6 +199,8 @@ html, body {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .report-txt-flat h1{
@@ -171,6 +210,8 @@ html, body {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .report-txt-poor h1{
@@ -180,6 +221,8 @@ html, body {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .report-txt-great h1{
@@ -189,6 +232,8 @@ html, body {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .report-txt-firing h1{
@@ -198,18 +243,22 @@ html, body {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
 .forecast-block {
     background-color: rgba(242, 246, 247, 0.329);
     margin: 0 auto;
     width: 720px;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 50px;
 }
 
 .forecast {
     background-color: rgba(201, 215, 218, 0.329);
     width: 716px;
-    margin-bottom: 50px;
     border-style: solid;
     border-color: black;
 }
