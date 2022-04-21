@@ -14,6 +14,7 @@
           <h1><a href="home">PR Surf</a></h1>
       </div>
       <div class="nav-top-right">
+              <li><h1><a href="forecasts">Forecasts</a></h1></li>
               <li><h1><a href="favorites">Favorites</a></h1></li>
               {% if user.is_authenticated %}
               <li><h1><a href="logout">Logout</a></h1></li>
@@ -27,7 +28,7 @@
         <h1>You have been logged out.</h1>
         <div>
             <small class="small-txt">
-               <a href="register">Log in again</a>
+               <a href="login">Log in again</a>
             </small>
         </div>
     </div>
