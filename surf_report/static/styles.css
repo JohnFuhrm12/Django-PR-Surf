@@ -132,7 +132,7 @@ html, body {
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    min-height: 800px;
+    min-height: 100%;
 }
 
 .top-block-forecasts h1 {
@@ -168,7 +168,7 @@ html, body {
 
 .block2 {
     background-color: rgba(201, 215, 218, 0.329);
-    min-height: 400px;
+    min-height: 100%;
 }
 
 .second-block {
@@ -254,6 +254,7 @@ html, body {
     text-align: center;
     font-size: 20px;
     padding-bottom: 50px;
+    min-height: 100%;
 }
 
 .forecast {
@@ -269,7 +270,7 @@ html, body {
 .register-form-block {
     background-color: rgba(201, 215, 218, 0.329);
     padding-top: 100px;
-    min-height: 600px;
+    min-height: 100%;
     text-align: center;
 }
 
